@@ -1,20 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Section = () => {
+const Section = ({ title, description, backgroundImg, leftBtnText, rightBtnText }) => {
     return (
-        <Wrap>
+        <Wrap bgImage={backgroundImg}>
             <ItemText>
-                <h1>Model S</h1>
-                <p>Order Online for <u>Touchless Delivery</u></p>
+                <h1>{title}</h1>
+                <p>{description}</p>
             </ItemText>
             <Buttons>
                 <ButtonGroup>
                     <LeftButton>
-                        Custom Order
+                        {leftBtnText}
                     </LeftButton>
                     <RightButton>
-                        Existing Inventory
+                        {rightBtnText}
                     </RightButton>
                 </ButtonGroup>
                 <DownArrow src="/images/down-arrow.svg" />
@@ -26,15 +26,15 @@ const Section = () => {
 export default Section;
 
 const Wrap = styled.div`
-    width: 100vw;
+    width: 100%;
     height: 100vh; 
-    background-image: url('/images/model-s.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-image: ${props => `url('/images/${props.bgImage}')`};
 `;
 
 const ItemText = styled.div`
@@ -60,6 +60,11 @@ const ButtonGroup = styled.div`
     display: flex;
     justify-content: center;
     padding-bottom: 30px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 const LeftButton = styled.div`
@@ -76,6 +81,11 @@ const LeftButton = styled.div`
     cursor: pointer;
     margin: 0 12px;
     font-weight: 600;
+
+    @media (max-width: 768px) {
+        margin-top: 15px;
+        width: 90%;
+    }
 `;
 
 const RightButton = styled(LeftButton)`
