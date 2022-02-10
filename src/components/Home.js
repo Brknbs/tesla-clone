@@ -11,6 +11,7 @@ const Home = () => {
                 backgroundImg="model-3.jpg"
                 leftBtnText="Custom order"
                 rightBtnText="Existing inventory"
+                showDownArrow={true}
             />
             <Section 
                 title="Model Y"
@@ -18,6 +19,7 @@ const Home = () => {
                 backgroundImg="model-y.jpg"
                 leftBtnText="Custom order"
                 rightBtnText="Existing inventory"
+                showDownArrow={false}
             />
             <Section 
                 title="Model S"
@@ -25,6 +27,7 @@ const Home = () => {
                 backgroundImg="model-s.jpg"
                 leftBtnText="Custom order"
                 rightBtnText="Existing inventory"
+                showDownArrow={false}
             />
             <Section 
                 title="Model X"
@@ -32,6 +35,31 @@ const Home = () => {
                 backgroundImg="model-x.jpg"
                 leftBtnText="Custom order"
                 rightBtnText="Existing inventory"
+                showDownArrow={false}
+            />
+            <Section 
+                title="Solar Panels"
+                description="Lowest Cost Solar Panels in America"
+                backgroundImg="solar-panel.jpg"
+                leftBtnText="Order now"
+                rightBtnText="Learn more"
+                showDownArrow={false}
+            />
+            <Section 
+                title="Solar Roof"
+                description="Produce Clean Energy From Your Roof"
+                backgroundImg="solar-roof.jpg"
+                leftBtnText="Order now"
+                rightBtnText="Learn more"
+                showDownArrow={false}
+            />
+            <Section 
+                title="Accessories"
+                description=""
+                backgroundImg="accessories.jpg"
+                leftBtnText="Shop now"
+                rightBtnText=""
+                showDownArrow={false}
             />
         </Container>
     );

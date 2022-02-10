@@ -1,23 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
 
-const Section = ({ title, description, backgroundImg, leftBtnText, rightBtnText }) => {
+const Section = ({ title, description, backgroundImg, leftBtnText, rightBtnText, showDownArrow }) => {
     return (
         <Wrap bgImage={backgroundImg}>
-            <ItemText>
-                <h1>{title}</h1>
-                <p>{description}</p>
-            </ItemText>
-            <Buttons>
-                <ButtonGroup>
-                    <LeftButton>
-                        {leftBtnText}
-                    </LeftButton>
-                    <RightButton>
-                        {rightBtnText}
-                    </RightButton>
-                </ButtonGroup>
-                <DownArrow src="/images/down-arrow.svg" />
+            <Fade bottom>
+                <ItemText>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </ItemText>
+            </Fade>
+            <Buttons showDownArrow={showDownArrow}>
+                <Fade bottom>
+                    <ButtonGroup>
+                        <LeftButton>
+                            {leftBtnText}
+                        </LeftButton>
+                        { rightBtnText && (
+                            <RightButton>
+                                {rightBtnText}
+                            </RightButton>
+                        )}
+                    </ButtonGroup>
+                </Fade>
+                { showDownArrow && (
+                    <DownArrow src="/images/down-arrow.svg" />
+                )}
             </Buttons>
         </Wrap>
     );
@@ -89,7 +98,7 @@ const LeftButton = styled.div`
 `;
 
 const RightButton = styled(LeftButton)`
-    background-color: #fff;
+    background-color: rgba(256, 256, 256, 0.8);;
     color: #000;
 `;
 
@@ -99,5 +108,5 @@ const DownArrow = styled.img`
 `;
 
 const Buttons = styled.div`
-    margin-bottom: 20px;
+    margin-bottom: ${props => props.showDownArrow ? '20px' : '60px'};
 `;
