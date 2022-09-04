@@ -44,6 +44,7 @@ const Wrap = styled.div`
     flex-direction: column;
     justify-content: space-between;
     background-image: ${props => `url('/images/${props.bgImage}')`};
+    scroll-snap-align: start center;
 `;
 
 const ItemText = styled.div`
